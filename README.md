@@ -25,7 +25,7 @@ pip install git+https://github.com/Timandes/opensearch-python.git
 
 Then import the package:
 ```python
-import opensearch 
+import opensearch
 ```
 
 ### Setuptools
@@ -62,7 +62,7 @@ configuration.access_key_secret = 'YOUR_ACCESS_KEY_SECRET'
 # create an instance of the API class
 api_instance = opensearch.SearchClient(opensearch.ApiClient(configuration))
 app_name = 'app_name_example' # str | 表示应用名（新高级版/标准版是多应用版本类型，需要指定应用名访问，主要针对服务中的应用版本）。
-query = 'collector_name_example' # str | 搜索主体，不能为空。主要支持子句有 config子句、query子句、sort子句、filter子句、aggregate子句、distinct子句 、kvpairs子句。
+query = 'query=default:\'天猫\'' # str | 搜索主体，不能为空。主要支持子句有 config子句、query子句、sort子句、filter子句、aggregate子句、distinct子句 、kvpairs子句。
 
 try:
     # 搜搜处理
