@@ -16,6 +16,7 @@
 """
 
 import json
+import opensearch
 
 class DocumentClient(opensearch.DefaultApi):
     def push(self, json_string, app_name, table_name):
