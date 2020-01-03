@@ -55,7 +55,7 @@ class SearchParamsBuilder(object):
         """
         uppercase_format = format_string.upper()
         if (uppercase_format in SearchFormat._NAMES_TO_VALUES):
-            self.__search_params.config.searchFormat = uppercase_format
+            self.__search_params.config.searchFormat = SearchFormat._NAMES_TO_VALUES[uppercase_format]
 
     def set_app_names(self, app_names):
         """设置要搜索的应用名称或ID。
