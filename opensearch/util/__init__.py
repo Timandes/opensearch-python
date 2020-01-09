@@ -1,2 +1,3 @@
+from opensearch.util.clause_params_builder import ClauseParamsBuilder
 from opensearch.util.url_params_builder import UrlParamsBuilder
 from opensearch.util.search_params_builder import SearchParamsBuilder
