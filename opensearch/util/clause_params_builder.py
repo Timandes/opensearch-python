@@ -138,15 +138,15 @@ class ClauseParamsBuilder(object):
                 if (distinct.key == None):
                     continue
 
-                subs = []
+                sub_clause_list = []
                 for k in self.DISTINCT_KEY_MAP:
                     if (distinct.get(k) != None):
                         v = self.DISTINCT_KEY_MAP[k]
-                        sub_distinct = globals()[v] + self.CLAUSE_AGGREGATE_KV_SEPARATOR + distinct.get(k)
-                        subs.append(sub_distinct)
+                        sub_clause = globals()[v] + self.CLAUSE_AGGREGATE_KV_SEPARATOR + distinct.get(k)
+                        sub_clause_list.append(sub_clause)
 
-                distinct = self.CLAUSE_DISTINCT_SUB_SEPARATOR.join(subs)
-                distincts.append(distinct)
+                clause = self.CLAUSE_DISTINCT_SUB_SEPARATOR.join(sub_clause_list)
+                distincts.append(clause)
 
             self.__clauses[self.DISTINCT_KEY] = self.CLAUSE_DISTINCT_SEPARATOR.join(distincts)
 
@@ -157,15 +157,15 @@ class ClauseParamsBuilder(object):
                 if (aggregate.groupKey == None or aggregate.aggFun == None):
                     continue
 
-                subs = []
+                sub_clause_list = []
                 for k in self.AGGREGATE_KEY_MAP:
                     if (aggregate.get(k) != None):
                         v = self.AGGREGATE_KEY_MAP[k]
-                        sub_aggregate = globals()[v] + self.CLAUSE_AGGREGATE_KV_SEPARATOR + aggregate.get(k)
-                        subs.append(sub_aggregate)
+                        sub_clause = globals()[v] + self.CLAUSE_AGGREGATE_KV_SEPARATOR + aggregate.get(k)
+                        sub_clause_list.append(sub_clause)
 
-                aggregate = self.CLAUSE_AGGREGATE_SUB_SEPARATOR.join(subs)
-                aggregates.append(aggregate)
+                clause = self.CLAUSE_AGGREGATE_SUB_SEPARATOR.join(sub_clause_list)
+                aggregates.append(clause)
 
             self.__clauses[self.AGGREGATE_KEY] = self.CLAUSE_AGGREGATE_SEPARATOR.join(aggregates)
 
